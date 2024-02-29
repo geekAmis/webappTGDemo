@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+           <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<!--Semantic-UI + commit -->
+<!--    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />-->
+<!--    <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.css" rel="stylesheet" type="text/css" />-->
+<!--    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>-->
+<!--    <script src="semantic.min_.js"></script>-->
+
+<!--fomantic-ui  -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"></script>
+
+  <meta charset="UTF-8">
+  <title>Gagarin data labs</title>
+</head>
+<body>
+
+
+<!--
+<div class="ui info message">
+  MOEX - аналитика Московской биржи
+</div>
+
+<div class="ui styled fluid accordion">
+  <div class="title active">
+    <i class="dropdown icon"></i>
+    MOEX - аналитика Московской биржи
+  </div>
+  <div class="content active">
+    <p class="visible" style="display: block !important;">
+      Поиск схожих по поведению акций за период
+  </div>
+  <div class="title">
+    <i class="dropdown icon"></i>
+    What kinds of dogs are there?
+
+  </div>
+  <div class="content">
+    <p class="transition hidden">
+      <input type="radio" name="moex" value="1.1"/>
+      There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
+  </div>
+  <div class="title">
+    <i class="dropdown icon"></i>
+    How do you acquire a dog?
+  </div>
+  <div class="content">
+    <p class="transition hidden">Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
+    <p class="transition hidden">A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
+  </div>
+</div>
+-->
+
+<div class="ui styled accordion">
+  <div class="title">
+    <i class="dropdown icon"></i>
+      <span>
+            <img style="vertical-align:middle" src="icons/timeseries2.jpg" width="47"
+                 alt="MOEX - аналитика Московской биржи">
+            <span style="">MOEX - аналитика Московской биржи</span>
+        </span>
+  </div>
+  <div class="content">
+    В данной категории представлены услуги по аналитике Московской биржи
+<!--    <div class="accordion visible" style="display: block !important;">-->
+      <div class="accordion visible" style="display: block !important;">
+
+      <div class="active title">
+          <i class="dropdown icon"></i>
+          Поиск схожих по поведению акций за период
+      </div>
+      <div class="active content">
+<!--        <p>-->
+<!--          <div class="ui info message">-->
+            В выбранном периоде акции будут объединены в группы по критерию схожести поведения.
+            Вы получите выгрузку данных с признаком группы и сравнительные графики.<br> Полученная информация позволит Вам учесть еще один фактор в Ваших алгоритмах принятия решения.
+            <br>Рекомендуем посмотреть видеообзор: <a href="https://rutube.ru/video/25f9a805bbda8f14aa68be173ef33f3f/">https://rutube.ru/video/25f9a805bbda8f14aa68be173ef33f3f/</a>
+<!--            Вы получите данные:<br>-->
+<!--            &nbsp;&nbsp;&nbsp;&nbsp;(.xls) по всем акциям за период с признаком группы;<br>-->
+<!--            &nbsp;&nbsp;&nbsp;&nbsp;(.png) сравнительные графики цен акций, попавших в группу, для каждой группы по-отдельности.-->
+<!--            <br>Полученные данные позволят Вам учесть еще один фактор в Ваших алгоритмах принятия решения.-->
+<!--          </div>-->
+<!--        </p>-->
+        <div class="accordion visible" style="display: block !important;">
+          <div class="title">
+              <i class="dropdown icon"></i>
+              интервал дат / цена за разовый запрос
+          </div>
+          <div class="active content">
+            <form>
+             <table>
+                <tr>
+                     <td></td>
+                     <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="moex" value="1.1" checked="true">  от 5 дн. до 2х недель /  бесплатно</td>
+                     <td></td>
+                     <td></td>
+                 </tr>
+                      <tr>
+                     <td></td>
+                     <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="moex" value="1.2" disabled>  до 1 месяца /  подлежит уточнению</td>
+                     <td></td>
+                     <td></td>
+                 </tr>
+                 <tr>
+                     <td></td>
+                     <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="moex" value="1.3" disabled>  до 3 месяцев /  подлежит уточнению</td>
+                     <td></td>
+                     <td></td>
+                 </tr>
+                 <tr>
+                     <td></td>
+                     <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="moex" value="1.4" disabled>  до 6 месяцев /  подлежит уточнению</td>
+                     <td></td>
+                     <td></td>
+                 </tr>
+                 <tr>
+                     <td></td>
+                     <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="moex" value="1.5" disabled>  до 1 года /  подлежит уточнению</td>
+                     <td></td>
+                     <td></td>
+                 </tr>
+
+             </table>
+
+              <p/>
+
+              <div class="ui form">
+                <div class="two fields">
+                  <table width="185px">
+                    <tr>
+                      <td>
+                        <div class="field">
+                          <!--<label>начало периода</label>-->
+                          <div class="ui calendar" id="rangestart">
+                            <div class="ui input left icon">
+                              <i class="calendar icon"></i>
+                              <input type="text" placeholder="начало периода">
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                      <div class="field">
+                        <!--<label>окончание периода</label>-->
+                        <div class="ui calendar" id="rangeend">
+                          <div class="ui input left icon">
+                            <i class="calendar icon"></i>
+                            <input type="text" placeholder="окончание периода"> <!--value="10/29/2023 3pm">-->
+                          </div>
+                        </div>
+                      </div>
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+              </div>
+                <br/>
+                <!--<p style="margin-left: 100px;">-->
+                    <input id="clickMe" type="button" value='Ok ✔' onclick="checkButton();" />
+                    <h3 id="disp" style= "color:green"> </h3>
+                    <h4 id="error" style= "color:red"> </h4>
+                <!--</p>-->
+            </form>
+
+          </div>
+<!--
+          <div class="title">
+              <i class="dropdown icon"></i>
+              Level 1A-B
+          </div>
+          <div class="content">
+              Level 1A-B Contents
+          </div>
+-->
+        </div>
+      </div>
+      <!--
+      <div class="title">
+          <i class="dropdown icon"></i>
+          Level 1B
+      </div>
+      <div class="content">
+          Level 1B Contents
+      </div>
+      <div class="title">
+          <i class="dropdown icon"></i>
+          Level 1C
+      </div>
+      <div class="content">
+          Level 1C Contents
+      </div>
+      -->
+    </div>
+  </div>
+</div>
+
+<div class="ui styled fluid accordion">
+    <div class="title">
+        <i class="dropdown icon"></i>
+<!--        Виртуальный ассистент/аватар-->
+        <span>
+            <img style="vertical-align:middle" src="icons/avatar3.png" width="47"
+                 alt="Виртуальный ассистент/аватар">
+            <span style="">Виртуальный ассистент/аватар</span>
+        </span>
+    </div>
+    <div class="content">
+        <p class="transition hidden">
+            Если Вас интересует тематика виртуальных асистентов/аватаров, то возможно Вам будет интересно наше решение.
+            Почему?: <br/>-высокая скорость генерации говорящего аватара по переданному тексту
+            или звуковому файлу.
+            <br>-низкие требования к железу (код показывает высокие результаты на CPU)
+            <br>Посмотрите обзор нашего продукта на youtube &nbsp;<a href="https://www.youtube.com/watch?v=taqcmCpcAJc">https://www.youtube.com/watch?v=taqcmCpcAJc</a>
+    </div>
+    <div class="title">
+        <i class="dropdown icon"></i>
+<!--        <img src="ai_mind.png"  alt="Girl in a jacket" width="20">-->
+<!--        AI/ML движок для создания голосовых асистентов и интеллектуальных ботов-->
+        <span>
+            <img style="vertical-align:middle" src="icons/ai_mind2.png" width="47"
+                 alt="Cоздание умных голосовых асистентов (аля Алиса) и интеллектуальных ботов">
+            <span style="">Cоздание умных голосовых асистентов (аля Алиса) и интеллектуальных ботов</span>
+        </span>
+    </div>
+    <div class="content">
+        <p class="transition hidden">
+            Создание голосового ассистента или умного чат бота для вашего бизнеса на базе нашего решения.
+            Вы можете получить свою  "Яндекс Алису", но работающую на Ваш бизнес.
+            <br>Посмотрите обзор нашего продукта на youtube &nbsp;<a href="https://www.youtube.com/watch?v=g8sPzC3Kqdc">https://www.youtube.com/watch?v=g8sPzC3Kqdc</a>
+    </div>
+
+<!--    <span class="title" onclick=about_action('123')>-->
+<!--        <button onclick=about_action('123')><img style="vertical-align:middle" src="about.png" width="27"-->
+<!--                                             alt="о нас"></button>О нас-->
+<!--    </span>-->
+
+    <div class="title" onclick=about_action('123')>
+        <i class="dropdown icon"></i>
+<!--        <span>-->
+<!--&lt;!&ndash;            <img style="vertical-align:middle" src="ai_mind.png" width="27"&ndash;&gt;-->
+<!--&lt;!&ndash;                 alt="Мы)">&ndash;&gt;-->
+<!--            <span style="">о нас</span>-->
+<!--        </span>-->
+<!--        <span onclick=about_action('123')>-->
+            <img style="vertical-align:middle" src="icons/about2.png" width="47"
+                 alt="О нас">
+            <span style="">О нас</span>
+<!--        </span>-->
+    </div>
+    <div class="content">
+        <p class="transition hidden">
+<!--            🚀 Подписывайтесь на наши новости и анонсы:<br>-->
+<!--            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id='a1' onclick="about_action('a1')" href="https://t.me/gagarin_data_labs">https://t.me/gagarin_data_labs</a>-->
+<!--&lt;!&ndash;        <button id="a11" onclick="about_action('a1')" style="padding: 10px">Открыть</button>&ndash;&gt;-->
+<!--            </p>-->
+
+
+<!--        💬 Если у Вас есть вопросы, идеи и пожелания, пишите нам-->
+<!--        через нашего бота помощника:<br>-->
+<!--        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="a2" onclick="about_action('a2')" href="https://t.me/Gagarin_data_labs_help_desk_bot">-->
+<!--        https://t.me/Gagarin_data_labs_help_desk_bot-->
+<!--        </a>-->
+<!--        Мы обязательно Вам ответим! ❤️-->
+
+<!--        <p><p>-->
+<!--        🔗 Поделиться ссылкой на наш сервис:<br>-->
+<!--        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id='a3' onclick="about_action('a3')" href=https://t.me/share/url?url=https://t.me/Gagarin_data_labs_bot">-->
+<!--        https://t.me/share/url?url=https://t.me/Gagarin_data_labs_bot-->
+<!--        </a>-->
+    </div>
+
+    <!--
+    <div class="title">
+        <i class="dropdown icon"></i>
+        New one
+    </div>
+    <div class="content">
+        <p class="transition hidden">Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
+        <p class="transition hidden">A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
+    </div>
+    -->
+</div>
+
+</body>
+<script>
+
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+dtm_tmp = new Date(urlParams.get('max_start_date'));
+const max_start_date = new Date(dtm_tmp.getFullYear(), dtm_tmp.getMonth(), dtm_tmp.getDate());
+dtm_tmp = new Date(urlParams.get('max_end_date'));
+const max_end_date = new Date(dtm_tmp.getFullYear(), dtm_tmp.getMonth(), dtm_tmp.getDate());
+const max_end_date_for_range_start = new Date(dtm_tmp.getFullYear(), dtm_tmp.getMonth(), dtm_tmp.getDate() - 4);
+
+
+  text_ru = {
+    days: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+    months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+    monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+    today: "Сегодня",
+    now: "Сейчас",
+    am: "до полудня",
+    pm: "после полудня"
+  }
+
+disabled_week_day = [0,6]
+
+var today = new Date();
+$('#rangestart').calendar({
+  type: 'date',
+  text: text_ru,
+//  inline: true,
+  startMode: 'month',
+  disabledDaysOfWeek : disabled_week_day,
+  firstDayOfWeek: 1,
+  minDate: max_start_date,
+  maxDate: max_end_date_for_range_start,
+  endCalendar: $('#rangeend'),
+  onChange: function (date, text) {
+       var newValue = text;
+       //alert(start_date);
+       new_end_max_date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 14)
+       if (new_end_max_date.getTime() > max_end_date.getTime()) {
+            new_end_max_date = max_end_date;
+       }
+       curSelectedEndDate = $('#rangeend').calendar('get focusDate')
+       curSelectedStartDate = $('#rangestart').calendar('get focusDate')
+       if (curSelectedEndDate != null) {
+           if (curSelectedEndDate.getTime() > new_end_max_date.getTime()) {
+               $('#rangeend').calendar('clear');
+           }
+           if (curSelectedEndDate.getTime() == curSelectedStartDate.getTime()) {
+               $('#rangeend').calendar('clear');
+           }
+           if (curSelectedEndDate.getTime() > new Date(curSelectedStartDate.getFullYear(),
+               curSelectedStartDate.getMonth(), curSelectedStartDate.getDate() +14).getTime()) {
+               $('#rangeend').calendar('clear');
+           }
+           $('#rangeend').calendar('set minDate', new Date(curSelectedStartDate.getFullYear(), curSelectedStartDate.getMonth(), curSelectedStartDate.getDate() +5));
+           $('#rangeend').calendar('set maxDate', new_end_max_date);
+       } else {
+           $('#rangeend').calendar('set minDate', new Date(date.getFullYear(), date.getMonth(), date.getDate() +5));
+           $('#rangeend').calendar('set maxDate', new_end_max_date);
+       }
+  }
+});
+
+
+$('#rangeend').calendar({
+  type: 'date',
+  text: text_ru,
+  firstDayOfWeek: 1,
+  startMode: 'month',
+  minDate: max_start_date,
+  maxDate: max_end_date,
+  startCalendar: $('#rangestart')
+});
+
+
+$('.ui.accordion')
+  .accordion()
+;
+
+Telegram.WebApp.ready();
+function checkButton() {
+
+//      alert($('#rangeend').calendar('get startDate'))
+//      $('.ui.accordion').accordion('open', 1)
+//      $('.ui.accordion').accordion('toggle', 2)
+//       alert(document.querySelector('input[name="moex"]:checked').value)
+
+    selected_pk_item = document.querySelector('input[name="moex"]:checked');
+    selected_start_date = $('#rangestart').calendar('get date');
+    selected_end_date = $('#rangeend').calendar('get date');
+
+    bln_input_valid = true;
+    err_msg = 'Пожалуйста, выберете:'
+    if (selected_pk_item == null) {
+        err_msg += "<li>услугу";
+        bln_input_valid = false;
+    }
+    if (selected_start_date == null) {
+        err_msg += "<li>дату начала";
+        bln_input_valid = false;
+    }
+    if (selected_end_date == null) {
+        err_msg +=  "<li>дату окончания";
+        bln_input_valid = false;
+    }
+    //alert(bln_input_valid)
+    if(bln_input_valid) {
+            document.getElementById("disp").innerHTML
+                = 'ок'
+        // вынужденно конверчу в строку руками иначе стандартные методы коверкаю дату под UTC
+        str_selected_start_date = selected_start_date.getFullYear()+'-'+(selected_start_date.getMonth()+1)+'-'+selected_start_date.getDate()
+        str_selected_end_date = selected_end_date.getFullYear()+'-'+(selected_end_date.getMonth()+1)+'-'+selected_end_date.getDate()
+
+        const data = JSON.stringify({moex: selected_pk_item.value, sd: str_selected_start_date, ed: str_selected_end_date, isAbout: false});
+        Telegram.WebApp.sendData(data);
+        Telegram.WebApp.close();
+
+    }
+    else {
+        document.getElementById("error").innerHTML
+            = "¯\_(ツ)_/¯ "+err_msg;
+    }
+}
+
+function about_action(action) {
+    // document.getElementById(action).click()
+    const data = JSON.stringify({isAbout: true});
+    Telegram.WebApp.sendData(data);
+    Telegram.WebApp.close();
+}
+
+
+</script>
+
+
+</html>

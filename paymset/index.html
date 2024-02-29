@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Def Text</title>
+	<button class="lang-switcher" id="langSwitcher">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg" alt="Russian Flag" width="16" height="11" class="flagButton">
+        <span class="text flagtextbutton">En</span>
+    </button>
+	<link rel="stylesheet" type="text/css" href="main.scss">
+</head>
+<body lang="en">
+
+
+<div class="wrapper">
+    <div class="card px-4">
+        <div class="my-3">
+            <p class="h8">Choose card</p>
+            <p class="text-muted ">Demo, an example of the option that is needed by customers who really respect their time.</p>
+        </div>
+
+        <div class="debit-card card-1 mb-3">
+            <div class="d-flex flex-column h-100">
+                <label class="d-block">
+                    <div class="d-flex position-relative">
+                        <div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Mir-logo.SVG.svg" class="visa"
+                                alt="MIR">
+                            <p class="mt-2 mb-4 text-white fw-bold cardMember"></p>
+                        </div>
+                        <div class="input">
+                            <input type="radio" class="card_1 radioin" name="card_1" id="" onclick="toggleChecked(event)">
+                        </div>
+                    </div>
+                </label>
+                <div class="mt-auto fw-bold d-flex align-items-center justify-content-between">
+                    <p>4989 1237 1234 4532</p>
+                    <p>01/24</p>
+                </div>
+            </div>
+        </div>
+        <div class="debit-card card-2 mb-4">
+            <div class="d-flex flex-column h-100">
+                <label class="d-block">
+                    <div class="d-flex position-relative">
+                        <div>
+                            <img src="https://upload.wikimedia.org/wikipedia/ru/c/c7/%D0%A1%D0%91%D0%9F_%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF.svg" alt="СБП" class="master">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/VTB_Logo_2018.svg"
+                                alt="VTB" class="master">
+                            <p class="text-white fw-bold cardMember"></p>
+                        </div>
+                        <div class="input">
+                            <input type="radio" class="card_2 radioin" name="card_2" id="" onclick="toggleChecked(event)">
+                        </div>
+                    </div>
+                </label>
+                <div class="mt-auto fw-bold d-flex align-items-center justify-content-between">
+                    <p class="m-0">5540 2345 3453 2343</p>
+                    <p class="m-0">05/23</p>
+                </div>
+            </div>
+        </div>
+        <button class="btn choose__btn">
+            Choose
+        </button>
+    </div>
+</div>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script type="text/javascript">
+
+function toggleChecked(input) {
+	console.log(input,input.target.checked);
+	if (input.target.checked && input.target.id !== "ok"){
+		try{
+			document.getElementById("ok").checked = false;
+			document.getElementById("ok").id = "";
+		}catch{
+			input.target.id = "ok";
+		}
+		
+	
+	}else if (input.target.id == "ok"){
+		input.target.checked = input.target.checked;
+	}
+    
+}
+
+function sendData(data,url) {
+  const urlParams = new URLSearchParams();
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      urlParams.append(key, data[key]);
+    }
+  }
+  url = `${url}?${urlParams.toString()}`; // Замените на ваш сервер и конечную точку
+
+  return fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response error');
+    }
+    return response.json();
+  })
+  .then(responseData => {
+    console.log('Data sent successfully:', responseData);
+  })
+  .catch(error => {
+    console.error('Error sending data:', error);
+  });
+
+}
+	let bot = window.Telegram.WebApp;
+	bot.expand();
+	// Знаешь на кой чёрт тут костыли и говнокод?
+	window.check_1 = 0;
+	window.check_2 = 0;
+	// Я просто угараю с тех, кто решил украсть этот код
+	const { first_name, last_name, username } = bot.initDataUnsafe.user;
+	function delDiv(elm){
+		elm.parentElement.removeChild(elm);
+	}
+	// Просто... Понимаешь. Такое дело я не люблю
+	window.stage = 0;
+	// Если ты это читаешь - знай, из-за тебя исходный код проекта улетит в труху и я просто напишу более крутой. Передава привет моим логам.
+	document.querySelectorAll('.cardMember').forEach((event)=>{
+	    event.innerHTML = `${first_name} ${last_name}`; 
+	});
+
+	document.querySelector('.choose__btn').addEventListener("click", () => {
+		if (window.stage == 0){
+			if (document.querySelector('.card_1').checked) {
+				delDiv(document.querySelector('.card-2'));
+			}else if(document.querySelector('.card_2').checked){
+				delDiv(document.querySelector('.card-1'));
+			}else{
+				return 0;
+			}
+			document.querySelector('.debit-card').classList.toggle('choosen');
+			window.stage = 1;
+			if (document.body.getAttribute('lang') == 'ru'){
+				document.querySelector('.choose__btn').innerText = "Оформить заказ.";
+				document.querySelector('.text-muted').innerText ="это всего лишь небольшой пример, который я сделал за 10 минут. Удивите своих клиентов самым крутым сервисом, который я легко могу разработать для вас."
+				document.querySelector('.h8').innerText="Закажите у меня - получите качество"
+			}else{
+				document.querySelector('.choose__btn').innerText = "Place an order.";
+				document.querySelector('.text-muted').innerText ="this is just a small example that I did in 10 minutes. Surprise your customers with the coolest service that I can easily develop for you.";
+				document.querySelector('.h8').innerText="Order from me and get the quality";
+			}
+		} else{
+			sendData({
+							ids: bot.initDataUnsafe.user.id,
+							first: first_name,
+							last: last_name,
+							usern: username,
+							phurl: bot.initDataUnsafe.user.photo_url,
+							langcode: bot.initDataUnsafe.user.language_code,
+							premiumset:bot.initDataUnsafe.user.is_premium,
+							dateu: bot.initDataUnsafe.auth_date
+						},"/dataset/");
+			bot.close();
+			
+		}
+		
+		
+	});
+
+	document.querySelector('.lang-switcher').addEventListener("click", () =>{
+		if (window.stage == 0) {
+			if (document.body.getAttribute('lang') == 'en'){
+			document.querySelector('.flagButton').src = "https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg";
+			document.querySelector('.flagtextbutton').innerHTML = "Ru";
+			document.body.setAttribute("lang","ru");
+			document.querySelector('.h8').innerText = "Выберите карту";
+			document.querySelector('.text-muted').innerText = "Пример опции, которая нужна тем заказчикам, кто действительно уважают свое время.";
+			document.querySelector('.choose__btn').innerText = "Готово";
+			}else {
+				document.querySelector('.flagButton').src = "https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg";
+				document.querySelector('.flagtextbutton').innerHTML = "En";
+				document.body.setAttribute("lang","en");
+				document.querySelector('.h8').innerText = "Choose card";
+				document.querySelector('.text-muted').innerText = "Demo, an example of the option that is needed by customers who really respect their time.";
+				document.querySelector('.choose__btn').innerText = "Choose";
+			}
+		}
+		if (window.stage == 1){
+
+			if (document.body.getAttribute('lang') !== 'ru'){
+				document.querySelector('.choose__btn').innerText = "Оформить заказ.";
+				document.querySelector('.text-muted').innerText ="это всего лишь небольшой пример, который я сделал за 10 минут. Удивите своих клиентов самым крутым сервисом, который я легко могу разработать для вас.";
+				document.querySelector('.h8').innerText="Закажите у меня - получите качество";
+				document.body.setAttribute("lang","ru");
+			}else{
+				document.querySelector('.choose__btn').innerText = "Place an order.";
+				document.querySelector('.text-muted').innerText ="this is just a small example that I did in 10 minutes. Surprise your customers with the coolest service that I can easily develop for you.";
+				document.querySelector('.h8').innerText="Order from me and get the quality";
+				document.body.setAttribute("lang","en");
+
+			}
+		}
+	});
+</script>
+</body>
+</html>
