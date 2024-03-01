@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../css/adminPage.css">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="next-head-count" content="2" />
+        <noscript data-n-css=""></noscript>
+        <noscript id="__next_css__DO_NOT_USE__"></noscript>
+    </head>
+    <body cz-shortcut-listen="true">
+        <div id="__next">
+            <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-3xl mx-auto">
+                <div class="flex-col space-y-1.5 p-6 flex items-center gap-4">
+                    <h3 class="text-2xl font-semibold leading-none tracking-tight">BOT: <code id="bot_name">Adm_tester_bot</code></h3>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3" translate="language" onclick="changeLangCode();">
+                        Язык
+                    </button>
+                    <button
+                        class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3"
+                    translate="Add lotery" >
+                        Добавить лотерею
+                    </button>
+                </div>
+                <div class="p-6 pt-0 flex items-center gap-4">
+                    <div class="flex flex-col gap-1">
+                        <p class="text-sm text-gray-500 dark:text-gray-400" translate="Users">Пользователи</p>
+                        <code class="text-2xl font-bold" id="INT_users">12,345</code>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="text-sm text-gray-500 dark:text-gray-400" translate="Lotteries">Лотереии</p>
+                        <code class="text-2xl font-bold" id="INT_loterri">234</code>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="text-sm text-gray-500 dark:text-gray-400" translate="Balance">О.Баланс</p>
+                        <p class="text-2xl font-bold">$<code id="INT_balance">12,345.67</code></p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 mt-4">
+                    <div class="relative w-full overflow-auto">
+                        <table class="w-full caption-bottom text-sm" id="Tranzactions">
+                            <thead class="[&amp;_tr]:border-b">
+                                <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                                    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0" translate="Transaction ID">ID Транзакции</th>
+                                    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0" translate="Type">Тип</th>
+                                    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0" translate="Amount">Сумма</th>
+                                    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0" translate="Date">Дата</th>
+                                </tr>
+                            </thead>
+                            <tbody class="[&amp;_tr:last-child]:border-0">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <script src="https://telegram.org/js/telegram-web-app.js">//Telegram API</script>
+      <script type="text/javascript" src="../js/bot.default.js">//Initial Telegram API, set consts and register bot</script>
+      <script type="text/javascript" src="../js/main.min.js">//Main functions</script>
+      <script type="text/javascript" src="../js/custom.adminPage.js">//Custom functions</script>
+      <script type="text/javascript" src="../js/change_lang.js">//Set language</script>
+      
+      <script type="text/javascript">
+        StandartizationLanguage(); // DONT'T TOUCH | change_lang.js | bot.default.js | telegram-web-app.js |
+      </script>
+    </body>
+</html>
