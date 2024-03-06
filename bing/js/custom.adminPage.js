@@ -48,3 +48,18 @@ function changeLOTERRI(count){
 function changeBALANCE(count){
   changeElementTextById(count,"INT_balance")
 }
+
+
+async function load_info(){
+            window.users = await sendFetchRequest('users', 'get', 10);
+            window.bot_info = await sendFetchRequest('adminstructure','get',1);
+            window.loterys = await sendFetchRequest('Lotery_data','get',1);
+            window.last_lotery = await sendFetchRequest('Last_lotery','get',12);
+            await changeBOTNAME(window.bot_info.Botname);
+            await changeUSERS(window.users.count);
+            await changeLOTERRI(window.last_lotery.length);
+            await changeBALANCE(window.bot_info.Balance);
+            window.last_lotery.forEach(data => {
+                addRowToTable('Tranzactions', data.winTid, data.Type, `$${data.prize}`, `${data.Datem}`);
+            })
+        }

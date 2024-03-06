@@ -1112,3 +1112,30 @@ body {
 .\[\&_tr\]\:border-b tr {
     border-bottom-width: 1px;
 }
+
+@keyframes fadeAndScaleOut {
+    0%,100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: .7;
+        transform: scale(1.1);
+    }
+}
+
+.element-to-animate {
+    animation: 1.7s fadeAndScaleOut ease;
+    transition: opacity 0.5s ease, transform 0.5s ease, display 1s ease;
+}
+.element-to-animate-faster {
+    animation: .8s fadeAndScaleOut cubic-bezier(.79,.14,.15,.86);
+    transition: opacity 0.5s ease, transform 0.5s ease, display 1s ease;
+}
+
+button{
+    margin-left: 10%;
+    margin-top: 5%;
+    background: var(--tg-theme-button-color);
+    color: var(--tg-theme-text-color);
+}
